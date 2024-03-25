@@ -1,6 +1,8 @@
-<div align="center">
+<div align="center" >
 
-![Image](./ICON.png)
+<div style="width: 100px; overflow: hidden;">
+  <img src="./ICON.jpg" style="width: 20%">
+</div>
 
 </div><div align="left">
 <h1>雅鸭IELTSDuck - IELTS作文小助手</h1>
