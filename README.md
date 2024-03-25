@@ -1,6 +1,6 @@
 <div align="center">
 
-![Image](./img/logo.png)
+![Image](./ICON.png)
 
 </div><div align="left">
 <h1>雅鸭IELTSDuck - IELTS作文小助手</h1>
