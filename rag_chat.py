@@ -5,7 +5,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from langchain_community.document_loaders import JSONLoader
 from langchain_text_splitters import RecursiveJsonSplitter
 from langchain_core.documents import Document
-from langchain.vectorstores import Chroma as Vectorstore
+from langchain_community.vectorstores import Chroma as Vectorstore
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
@@ -44,26 +44,21 @@ vectordb.persist()
 retriever = vectordb.as_retriever(search_kwargs={"k": 5})  # Retrieve top 5 documents
 
 # Load model
-tokenizer = AutoTokenizer.from_pretrained("internlm/internlm2-chat-7b", trust_remote_code=True)
-# Set `torch_dtype=torch.float16` to load model in float16, otherwise it will be loaded as float32 and might cause OOM Error.
-model = AutoModelForCausalLM.from_pretrained("internlm/internlm2-chat-7b", device_map="auto", trust_remote_code=True, torch_dtype=torch.float16)
-# Inferencing
-model = model.eval()
-# response, history = model.chat(tokenizer, "hello", history=[])
-# print(response)
-# # Output: Hello? How can I help you today?
-# response, history = model.chat(tokenizer, "please provide three suggestions about time management", history=history)
-# print(response)
+llm = InternLM()
+llm.predict("你是谁")
 
-while True:
-    query = input("请输入查询: ")  # Get user input from console
-    if query.lower() == 'exit':
-        print("退出程序。")
-        break
+# Prompt template
+template = """你是一个雅思作文小助手，需要帮用户按照雅思官方标准批改他们的作文。使用以下上下文来批改用户的问题。如果你不知道答案，就说你不知道。总是使用中文回答。
+问题: {question}
+可参考的上下文：
+···
+{context}
+···
+如果给定的上下文无法让你做出回答，请回答你不知道。
+有用的回答:"""
 
-    retrieved_docs = cache_retriever.retrieve(query)
+# 调用 LangChain 的方法来实例化一个 Template 对象，该对象包含了 context 和 question 两个变量，在实际调用时，这两个变量会被检索到的文档片段和用户提问填充
+QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context","question"],template=template)
 
-    # Use LLM to generate response based on retrieved docs
-    context = " ".join([doc.page_content for doc in retrieved_docs[:5]])  # Limit context size to 5 docs
-    response = model.generate(tokenizer(context, return_tensors='pt').input_ids.to(model.device), max_length=512)
-    print("回答:", tokenizer.decode(response[0], skip_special_tokens=True))
+qa_chain = RetrievalQA.from_chain_type(llm,retriever=vectordb.as_retriever(),return_source_documents=True,chain_type_kwargs={"prompt":QA_CHAIN_PROMPT})
+

@@ -1,0 +1,7 @@
+transformers
+streamlit
+torch
+langchain
+sentencepiece
+einops
+langchain-community
