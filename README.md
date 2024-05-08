@@ -25,9 +25,9 @@
 [license-url]: ./LICENSE
 [evaluation-url]: https://github.com/internLM/OpenCompass/
 [OpenXLab_Model-url]: https://openxlab.org.cn/models/detail/milowang/IELTS_essay_eval_7b_v1
-[OpenXLab_App-url]: https://openxlab.org.cn/apps/detail/BYCJS/Chat_huanhuan
-[ModelScope-url]: https://www.modelscope.cn/models/kmno4zx/huanhuan-chat-internlm2-1_8b/summary
-[Issues-url]: https://github.com/KMnO4-zx/xlab-huanhuan/issues
+[OpenXLab_App-url]: https://openxlab.org.cn/apps/detail/Fayche/IELTSDuck
+[ModelScope-url]: https://github.com/neverbiasu/IELTSDuck
+[Issues-url]: https://github.com/neverbiasu/IELTSDuck/issues
 
 
 </div>
@@ -94,6 +94,9 @@
 
 **https://openxlab.org.cn/models/detail/milowang/IELTS_essay_eval_7b_v1**
 
+***OpenXLab 应用***
+
+**https://openxlab.org.cn/apps/detail/Fayche/IELTSDuck**
 
 ## 🚀 News
 
@@ -223,12 +226,14 @@ python start.py
 &emsp;&emsp;使用 XTuner 进行微调，具体脚本可参考[internlm2_chat_7b_qlora_oasst1_e3_copy.py](./train/internlm2_chat_7b_qlora_oasst1_e3_copy.py)，该脚本在`train`文件夹下。脚本内有较为详细的注释。
 
 <details>
+  
 ### 部署
+  
 #### OpenXLab 部署 Chat-嬛嬛
 
 &emsp;&emsp;仅需要 Fork 本仓库，然后在 OpenXLab 上创建一个新的项目，将 Fork 的仓库与新建的项目关联，即可在 OpenXLab 上部署 Chat-嬛嬛。
 
-&emsp;&emsp;***OPenXLab Chat嬛嬛  https://openxlab.org.cn/apps/detail/BYCJS/Chat_huanhuan***
+&emsp;&emsp;***OPenXLab IELTSDuck https://openxlab.org.cn/apps/detail/Fayche/IELTSDuck***
 
 ![Alt text](images/openxlab.png)
 
