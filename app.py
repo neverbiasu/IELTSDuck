@@ -29,8 +29,8 @@ base_path = './IELTS_essay_eval_cn_7b_v1'
 # download repo to the base_path directory using git
 os.system('apt install git')
 os.system('apt install git-lfs')
-os.system('git lfs install')
 os.system(f'git clone https://code.openxlab.org.cn/milowang/IELTS_essay_eval_cn_7b_v1.git {base_path}')
+os.system('git lfs install')
 os.system(f'cd {base_path} && git lfs pull')
 
 
