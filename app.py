@@ -12,8 +12,9 @@ import json
 import os
 
 # 在侧边栏中创建一个标题和一个链接
+# st.logo("images/ICON.jpg")
 with st.sidebar:
-    st.markdown("## InternLM LLM")
+    st.markdown("## IELTSDuck")
     "[InternLM](https://github.com/InternLM/InternLM.git)"
     "[雅鸭](https://github.com/neverbiasu/IELTSDuck.git)"
     # 创建一个滑块，用于选择最大长度，范围在0到1024之间，默认值为512
@@ -23,13 +24,12 @@ with st.sidebar:
 # 创建一个标题和一个副标题
 st.title("💬 InternLM2-Chat-7B IELTSDuck")
 st.caption("🚀 A streamlit chatbot powered by InternLM2 QLora")
-st.logo(image, link="images/ICON.jpg")
 
-# download repo to the base_path directory using git
 base_path = './IELTS_essay_eval_cn_7b_v1'
-
+# download repo to the base_path directory using git
 os.system('apt install git')
 os.system('apt install git-lfs')
+os.system('git lfs install')
 os.system(f'git clone https://code.openxlab.org.cn/milowang/IELTS_essay_eval_cn_7b_v1.git {base_path}')
 os.system(f'cd {base_path} && git lfs pull')
 
