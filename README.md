@@ -2,7 +2,7 @@
 <div align="center">
 
 
-<img src="./ICON.jpg" style="width: 20%">
+<img src="./images/ICON.jpg" style="width: 20%">
   <div align="center">
     <b><font size="5">雅鸭IELTSDuck - IELTS作文小助手</font></b>
   </div>

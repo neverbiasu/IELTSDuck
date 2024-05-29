@@ -1,5 +1,5 @@
 # 导入所需的库
-from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
+from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import streamlit as st
 from langchain_text_splitters import RecursiveJsonSplitter
@@ -23,6 +23,7 @@ with st.sidebar:
 # 创建一个标题和一个副标题
 st.title("💬 InternLM2-Chat-7B IELTSDuck")
 st.caption("🚀 A streamlit chatbot powered by InternLM2 QLora")
+st.logo(image, link="images/ICON.jpg")
 
 # download repo to the base_path directory using git
 base_path = './IELTS_essay_eval_cn_7b_v1'
