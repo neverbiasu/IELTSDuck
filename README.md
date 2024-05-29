@@ -34,29 +34,28 @@
 
 ## 📝目录
 
-- [📖 项目概述](#📖-项目概述)
-  - [😊-主要功能](#😊-主要功能)
-  - [🛠️-项目愿景](#🛠️-项目愿景)
-- [🔗 模型及体验地址](#🔗-模型及体验地址)
-- [🚀 News](#🚀-news)
-- [🧾 数据集](#🧾-数据集)
-- [💼 使用方法](#💼-使用方法)
-  - [快速开始](#快速开始)
-  - [重新训练](#重新训练)
-    - [环境搭建](#环境搭建)
-    - [XTuner微调](#xtuner微调)
-  - [部署](#部署)
-      - [OpenXLab 部署 Chat-嬛嬛](#openxlab-部署-chat-嬛嬛)
+- [雅鸭IELTSDuck - IELTS作文小助手](#雅鸭ieltsduck---ielts作文小助手)
+  - [📝目录](#目录)
+  - [📖 项目概述](#-项目概述)
+    - [😊 主要功能](#-主要功能)
+    - [🛠️ 项目愿景](#️-项目愿景)
+  - [🔗 模型及体验地址](#-模型及体验地址)
+  - [🚀 News](#-news)
+  - [🧾 数据集](#-数据集)
+  - [💼 使用方法](#-使用方法)
+    - [快速开始](#快速开始)
+    - [重新训练](#重新训练)
+      - [XTuner微调](#xtuner微调)
+    - [部署](#部署)
+      - [OpenXLab 部署 IELTDuck](#openxlab-部署-ieltduck)
       - [LmDeploy部署](#lmdeploy部署)
-  - [测评与量化](#测评与量化)
+    - [测评与量化](#测评与量化)
       - [OpneCompass 评测](#opnecompass-评测)
       - [Lmdeploy\&opencompass 量化以及量化评测](#lmdeployopencompass-量化以及量化评测)
         - [`W4`量化评测](#w4量化评测)
         - [`KV Cache`量化评测](#kv-cache量化评测)
-- [⚠️ 注意](#⚠️-注意)
-- [💕 致谢](#💕-致谢)
-  - [项目成员](#项目成员)
-  - [特别感谢](#特别感谢)
+  - [⚠️ 注意](#️-注意)
+  - [💕 致谢](#-致谢)
 
 
 
@@ -85,7 +84,7 @@
 雅鸭IELTSDuck全流程如图所示：
 
 <p align="center">
-    <img src="./images/架构.png" alt="alt text">
+    <img src="./images/IELTSDuck.jpeg" alt="alt text">
 </p>
 
 ## 🔗 模型及体验地址
@@ -171,7 +170,7 @@ cd IELTSDuck
 
 ```bash
 # conda 创建虚拟环境（可选）
-conda create -n ieltsduck
+conda create -n ieltsduck python=3.8
 conda activate ieltsduck
 # 安装所需依赖
 pip install -r requirements.txt
@@ -207,8 +206,8 @@ pip install openxlab
 
 ```python
 from openxlab.model import download
-download(model_repo='BYCJS/huanhuan-chat-internlm2', 
-        model_name='huanhuan-chat-internlm2', output='./')
+download(model_repo='milowang/IELTS_essay_eval_cn_7b_v1', 
+        model_name='IELTSDuck', output='./')
 ```
 
 </details>
@@ -229,9 +228,9 @@ python start.py
   
 ### 部署
   
-#### OpenXLab 部署 Chat-嬛嬛
+#### OpenXLab 部署 IELTDuck
 
-&emsp;&emsp;仅需要 Fork 本仓库，然后在 OpenXLab 上创建一个新的项目，将 Fork 的仓库与新建的项目关联，即可在 OpenXLab 上部署 Chat-嬛嬛。
+&emsp;&emsp;仅需要 Fork 本仓库，然后在 OpenXLab 上创建一个新的项目，将 Fork 的仓库与新建的项目关联，即可在 OpenXLab 上部署 IELTSDuck。
 
 &emsp;&emsp;***OPenXLab IELTSDuck https://openxlab.org.cn/apps/detail/Fayche/IELTSDuck***
 
@@ -361,10 +360,6 @@ python run.py configs/eval_turbomind.py -w 结果保存路径
 结果文件可在同目录文件[results](./results)中获取
 
 </details>
-
-## 📚 使用说明
-
-施工中🚧
 
 ## ⚠️ 注意
 

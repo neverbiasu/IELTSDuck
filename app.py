@@ -24,13 +24,13 @@ with st.sidebar:
 st.title("💬 InternLM2-Chat-7B IELTSDuck")
 st.caption("🚀 A streamlit chatbot powered by InternLM2 QLora")
 
-base_path = './IELTS_essay_eval_cn_7b_v1'
 # download repo to the base_path directory using git
+base_path = './IELTS_essay_eval_cn_7b_v1'
 
-# os.system('apt install git')
-# os.system('apt install git-lfs')
-# os.system(f'git clone https://code.openxlab.org.cn/milowang/IELTS_essay_eval_cn_7b_v1.git {base_path}')
-# os.system(f'cd {base_path} && git lfs pull')
+os.system('apt install git')
+os.system('apt install git-lfs')
+os.system(f'git clone https://code.openxlab.org.cn/milowang/IELTS_essay_eval_cn_7b_v1.git {base_path}')
+os.system(f'cd {base_path} && git lfs pull')
 
 
 # 定义一个函数，用于获取模型和tokenizer
