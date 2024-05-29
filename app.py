@@ -30,8 +30,7 @@ base_path = './IELTS_essay_eval_cn_7b_v1'
 os.system('apt install git')
 os.system('apt install git-lfs')
 os.system(f'git clone https://code.openxlab.org.cn/milowang/IELTS_essay_eval_cn_7b_v1.git {base_path}')
-os.system('git lfs install')
-os.system(f'cd {base_path} && git lfs pull')
+os.system(f'cd {base_path} && git lfs install && git lfs pull')
 
 
 # 定义一个函数，用于获取模型和tokenizer
