@@ -27,6 +27,7 @@ st.caption("🚀 A streamlit chatbot powered by InternLM2 QLora")
 
 base_path = './IELTS_essay_eval_cn_7b_v1'
 # download repo to the base_path directory using git
+os.system('curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash')
 os.system('apt install git')
 os.system('apt install git-lfs')
 os.system(f'git clone https://code.openxlab.org.cn/milowang/IELTS_essay_eval_cn_7b_v1.git {base_path}')
