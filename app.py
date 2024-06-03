@@ -4,9 +4,10 @@ import torch
 import streamlit as st
 from langchain_text_splitters import RecursiveJsonSplitter
 from langchain_community.vectorstores import Chroma as Vectorstore
-from langchain.embeddings.huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
+from modelscope import snapshot_download
 from pathlib import Path
 import json
 import os
@@ -25,22 +26,17 @@ with st.sidebar:
 st.title("💬 InternLM2-Chat-7B IELTSDuck")
 st.caption("🚀 A streamlit chatbot powered by InternLM2 QLora")
 
-base_path = './IELTS_essay_eval_cn_7b_v1'
-# download repo to the base_path directory using git
-os.system('curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash')
-os.system('apt install git')
-os.system('apt install git-lfs')
-os.system(f'git clone https://code.openxlab.org.cn/milowang/IELTS_essay_eval_cn_7b_v1.git {base_path}')
-os.system(f'cd {base_path} && git lfs install && git lfs pull')
-
+# 定义模型路径
+model_id = 'kmno4zx/huanhuan-chat-internlm2'
+mode_name_or_path = snapshot_download(model_id, revision='master')
 
 # 定义一个函数，用于获取模型和tokenizer
 @st.cache_resource
 def get_model():
-    # load transformers model
-    tokenizer = AutoTokenizer.from_pretrained(base_path, trust_remote_code=True)
-    # please replace "AutoModelForCausalLM" with your real task
-    model = AutoModelForCausalLM.from_pretrained(base_path, trust_remote_code=True, torch_dtype=torch.float16).cuda()
+    # 从预训练的模型中获取tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(mode_name_or_path, trust_remote_code=True)
+    # 从预训练的模型中获取模型，并设置模型参数
+    model = AutoModelForCausalLM.from_pretrained(mode_name_or_path, trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
     model.eval()  
     return tokenizer, model
 

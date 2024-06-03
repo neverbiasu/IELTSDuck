@@ -5,3 +5,4 @@ langchain
 sentencepiece
 einops
 langchain-community
+modelscope
