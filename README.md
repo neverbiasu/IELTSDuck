@@ -26,7 +26,7 @@
 [evaluation-url]: https://github.com/internLM/OpenCompass/
 [OpenXLab_Model-url]: https://openxlab.org.cn/models/detail/milowang/IELTS_essay_eval_7b_v1
 [OpenXLab_App-url]: https://openxlab.org.cn/apps/detail/Fayche/IELTSDuck
-[ModelScope-url]: https://github.com/neverbiasu/IELTSDuck
+[ModelScope-url]: https://www.modelscope.cn/models/ModelE/IELTSDuck-Chat-7B/summary
 [Issues-url]: https://github.com/neverbiasu/IELTSDuck/issues
 
 
