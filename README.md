@@ -88,8 +88,11 @@
 </p>
 
 ## 🔗 模型及体验地址
+***ModelScope 模型地址：***
 
-***OpenXLab 模型文件：***
+**https://www.modelscope.cn/models/ModelE/IELTSDuck-Chat-7B/summary**
+
+***OpenXLab 模型地址：***
 
 **https://openxlab.org.cn/models/detail/milowang/IELTS_essay_eval_7b_v1**
 
@@ -110,8 +113,9 @@
 ```text
 
 Interview form the basic selection criteria for most large companies. However, some people think that interview is not a reliable method of choosing whom to employ and there are better methods. To what extent to you agree or disagree?	
-
+```
 文章
+```text
 To agree or disagree with the statement that interviews are the basic filteration criteria is an important issue. Putting the discussion in a wider context, interviews has always been debatable. Even though some people think that there are better methods for employing a resource rather than interviews , I wholeheartedly believe that interview is a good method for recruiting candidates. First I will discuss some arguments supporting my ideas about this statement, after which some aspects against that will be presented.
 
 On the one hand, many people agree with this statement for many noteworthy reasons. The most remarkable is that the recruiters can get an idea about the personalitty and skills of the potential employees .For instance,when the person is asked about any topic and he answers it in a concise and crisp manner,then the recruiter gets to know he is suitable for the job. Another key reason is that if a candidate is asked about case studies then the recruiters can judge the personality traits of that employee and also the ability to think outside the box.
@@ -120,12 +124,15 @@ On the other hand, other people disagree with this statement for many reasons. T
 
 Group discussions help in getting a grasp of the conversational skills that he/she possesses.For example,in sales and marketing jobs conversational skills play a major role.
 
-All in all, when all the specific reasons and relevant examples are considered and evaluated, I strongly agree with the idea supporting this statement because its benefits outweigh its drawbacks.	**Task Achievement (6.5)**
+All in all, when all the specific reasons and relevant examples are considered and evaluated, I strongly agree with the idea supporting this statement because its benefits outweigh its drawbacks.
+```
+批改建议
+```text
+**Task Achievement (6.5)**
 - The essay effectively addresses the task and presents a clear stance on the issue of whether interviews are a reliable method of employee selection.
 - The ideas presented are relevant to the task and are supported with appropriate arguments and examples.
 - The essay covers all aspects of the task, including the advantages and disadvantages of using interviews for hiring.
 
-批改建议
 **Coherence and Cohesion (7.0)**
 - The essay is well-organized and the transitions between sentences and paragraphs are smooth and logical.
 - The use of connecting words and phrases helps maintain a clear progression of ideas.
@@ -189,7 +196,7 @@ pip install modelscope
 
 ```python
 from modelscope.hub.snapshot_download import snapshot_download
-model_dir = snapshot_download('kmno4zx/huanhuan-chat-internlm2', cache_dir='./')
+model_dir = snapshot_download('ModelE/IELTSDuck-Chat-7B', cache_dir='./')
 ```
 
 </details>
