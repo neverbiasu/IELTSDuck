@@ -222,7 +222,7 @@ download(model_repo='milowang/IELTS_essay_eval_cn_7b_v1',
 4. 本地部署
 
 ```bash
-python start.py
+python app.py
 ```
 ### 重新训练
 
