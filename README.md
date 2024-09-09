@@ -229,7 +229,7 @@ python app.py
 >本模型使用使用 XTuner 训练， XTuner有各个模型的一键训练脚本，相对便捷。且对 InternLM2 的支持度最高。
 
 #### XTuner微调
-&emsp;&emsp;使用 XTuner 进行微调，具体脚本可参考[internlm2_chat_7b_qlora_oasst1_e3_copy.py](./train/internlm2_chat_7b_qlora_oasst1_e3_copy.py)，该脚本在`train`文件夹下。脚本内有较为详细的注释。
+&emsp;&emsp;使用 XTuner 进行微调，具体脚本可参考[internlm2_chat_7b_qlora_ielts.py](./src/internlm2_chat_7b_qlora_ielts.py)，该脚本在`src`文件夹下。脚本内有较为详细的注释。
 
 <details>
   
