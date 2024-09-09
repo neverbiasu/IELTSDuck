@@ -229,11 +229,50 @@ python app.py
 >本模型使用使用 XTuner 训练， XTuner有各个模型的一键训练脚本，相对便捷。且对 InternLM2 的支持度最高。
 
 #### XTuner微调
-&emsp;&emsp;使用 XTuner 进行微调，具体脚本可参考[internlm2_chat_7b_qlora_ielts.py](./src/internlm2_chat_7b_qlora_ielts.py)，该脚本在`src`文件夹下。脚本内有较为详细的注释。
 
 <details>
-  
+&emsp;&emsp;使用 XTuner 进行微调，具体脚本可参考[internlm2_chat_7b_qlora_ielts.py](./src/internlm2_chat_7b_qlora_ielts.py)，该脚本在`src`文件夹下。脚本内有较为详细的注释。
+
+具体操作
+
+要使用 XTuner 训练 `internlm2_chat_7b_qlora_ielts` 模型，请遵循以下步骤：
+
+1. 激活 XTuner 环境：
+```shell
+conda activate xtuner0.1.17
+```
+
+2. 开始训练过程：
+```shell
+xtuner train internlm2_chat_7b_qlora_ielts.py --deepspeed deepspeed_zero2
+```
+
+要列出 `internlm2_7b` 模型的可用配置，请使用以下命令：
+```shell
+xtuner list-cfg -p internlm2_7b
+```
+
+要将训练好的模型从 `.pth` 格式转换为 Hugging Face 格式，请使用以下命令：
+```shell
+xtuner convert pth_to_hf internlm2_chat_7b_qlora_ielts.py work_dirs/internlm2_chat_7b_qlora_ielts/iter_52890.pth ./huggingface
+```
+
+要将转换后的模型与 `internlm2-chat-7b` 模型合并，请使用以下命令：
+```shell
+xtuner convert merge internlm2-chat-7b huggingface ielts_duck
+```
+
+最后，要与 `ielts_duck` 模型聊天，请使用以下命令：
+```shell
+xtuner chat ielts_duck --prompt-template internlm2_chat
+```
+
+请记得将占位符替换为适合您设置的适当路径和配置。
+
+</details>
+
 ### 部署
+<details>
   
 #### OpenXLab 部署 IELTDuck
 
