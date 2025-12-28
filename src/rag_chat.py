@@ -17,7 +17,6 @@ from LLM import InternLM
 # Load data
 file_path = Path('./data/data_processed.json') 
 json_data = json.loads(Path(file_path).read_text())
-# pprint(data)
 
 # Split data
 chunk_size = 50
@@ -26,13 +25,8 @@ docs = splitter.create_documents(json_data)
 
 # Embedding model
 embeddings = HuggingFaceEmbeddings()
-# embeddings = EmbeddingModel(model_name_or_path="maidalun1020/bce-embedding-base_v1")
-# texts = [doc.page_content for doc in docs]
-# embeddings = embedding_model.encode(texts)
-# pprint("len of embeddings, and len of embedding[0]", len(embeddings), len(embeddings[0]))
 
 # Indexing
-# faiss_index = FAISS.from_documents(pages, embeddings)
 persist_directory = './data_base/vector_db/chroma'
 vectordb = Vectorstore.from_documents(
     documents=docs,
