@@ -107,7 +107,9 @@ alpaca_en = {
     'max_length': max_length,
     'dataset_map_fn': openai_map_fn,
     'template_map_fn': {
-        'type': template_map_fn_factory, 'template': prompt_template},
+        'type': template_map_fn_factory,
+        'template': prompt_template
+    },
     'remove_unused_columns': True,
     'shuffle_before_pack': True,
     'pack_to_max_length': pack_to_max_length,
@@ -131,7 +133,11 @@ train_dataloader = {
 optim_wrapper = {
     'type': AmpOptimWrapper,
     'optimizer': {
-        'type': optim_type, 'lr': lr, 'betas': betas, 'weight_decay': weight_decay},
+        'type': optim_type,
+        'lr': lr,
+        'betas': betas,
+        'weight_decay': weight_decay
+    },
     'clip_grad': {'max_norm': max_norm, 'error_if_nonfinite': False},
     'accumulative_counts': accumulative_counts,
     'loss_scale': 'dynamic',
