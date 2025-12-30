@@ -55,4 +55,3 @@ template = """你是一个雅思作文小助手，需要帮用户按照雅思官
 QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context","question"],template=template)
 
 qa_chain = RetrievalQA.from_chain_type(llm,retriever=vectordb.as_retriever(),return_source_documents=True,chain_type_kwargs={"prompt":QA_CHAIN_PROMPT})
-
