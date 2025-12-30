@@ -13,7 +13,6 @@ import json
 import os
 
 # 在侧边栏中创建一个标题和一个链接
-# st.logo("images/ICON.jpg")
 with st.sidebar:
     st.markdown("## IELTSDuck")
     "[InternLM](https://github.com/InternLM/InternLM.git)"
@@ -52,23 +51,6 @@ for msg in st.session_state.messages:
     st.chat_message("user").write(msg[0])
     st.chat_message("assistant").write(msg[1])
 
-# # Load JSON data
-# file_path = Path('./data/train.json') 
-# json_data = json.loads(Path(file_path).read_text())
-# # Split data
-# chunk_size = 50
-# splitter = RecursiveJsonSplitter(max_chunk_size=chunk_size)
-# docs = splitter.create_documents(json_data)
-# # Embedding model
-# embeddings = HuggingFaceEmbeddings()
-# # Create the vector database
-# persist_directory = './data_base/vector_db/chroma'
-# vectordb = Vectorstore.from_documents(
-#     documents=docs, 
-#     embedding=embeddings,
-#     persist_directory=persist_directory)
-# vectordb.persist()
-
 def generate_response(prompt):
     
     # Prompt template
@@ -90,8 +72,7 @@ if prompt := st.chat_input():
     # Display user input
     st.chat_message("user").write(prompt)
     # Generate response
-    # response = generate_response(prompt)
-    response, history = model.chat(tokenizer, prompt, meta_instruction=system_prompt, history=st.session_state.messages)
+    response, _ = model.chat(tokenizer, prompt, meta_instruction=system_prompt, history=st.session_state.messages)
     # Add response to session_state messages
     st.session_state.messages.append((prompt, response))
     # Display response
